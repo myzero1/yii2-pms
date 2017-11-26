@@ -9,6 +9,8 @@ use yii\web\AssetBundle;
  */
 class PreMulSubmissionsAsset extends AssetBundle
 {
+	public $sourcePath = '@myzero1/pms/assets';
+
     public $js = [
         'js/pre-mul-submissions.js'
     ];
