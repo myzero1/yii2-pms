@@ -41,9 +41,6 @@ class PreventMultipleSubmissionsBehavior extends Behavior
             if (!in_array(\Yii::$app->requestedRoute, $this->excludedRoutes)) {
                 $lastActionParamsHash = md5(json_encode(Yii::$app->request->post()));
                 $lastActionParamsHashSession = Yii::$app->getSession()->get('lastActionParamsHash', false);
-                file_put_contents('log', json_encode(Yii::$app->request->post()) . "_json\n", FILE_APPEND);
-                file_put_contents('log', $lastActionParamsHashSession . "_session\n", FILE_APPEND);
-                file_put_contents('log', $lastActionParamsHash . "_hash\n", FILE_APPEND);
                 if ($lastActionParamsHash == $lastActionParamsHashSession) {
                     $action = Yii::$app->controller->action;
                     if(!$action instanceof \yii\web\ErrorAction) {
