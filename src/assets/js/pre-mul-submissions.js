@@ -1,9 +1,9 @@
-var count = 0;
+var pms_submited = 0;
 $("form").on("beforeSubmit", function (event, messages) {
-    if(count>0){
+    if(pms_submited == 1){
         return false;
     }else{
-        count = count+1;
+        pms_submited = 1;
     }
     $(":submit").attr("disabled",true);
 });
